@@ -1,0 +1,39 @@
+{
+    "name": "sparkpost-publisher",
+    "version": "0.1.0",
+    "description": "A package that publishes your emails to SparkPost",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/MatthiasKunnen/sparkpost-publisher.git"
+    },
+    "keywords": [
+        "SparkPost",
+        "publish",
+        "foundation-email",
+        "spp",
+        "ci",
+        "cd",
+        "automation"
+    ],
+    "author": "Matthias Kunnen <matthias.kunnen@gmail.com>",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/MatthiasKunnen/sparkpost-publisher/issues"
+    },
+    "homepage": "https://github.com/MatthiasKunnen/sparkpost-publisher#readme",
+    "scripts": {
+        "build": "tsc -p tsconfig.json"
+    },
+    "dependencies": {
+        "commander": "^2.15.1",
+        "sparkpost": "^2.1.2"
+    },
+    "devDependencies": {
+        "@types/node": "^10.3.3",
+        "@types/sparkpost": "^2.1.4",
+        "ts-node": "^6.1.1",
+        "tslib": "^1.9.2",
+        "tslint": "^5.10.0",
+        "typescript": "^2.9.2"
+    }
+}
