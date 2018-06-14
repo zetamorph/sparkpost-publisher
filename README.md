@@ -62,6 +62,9 @@ Submit your drafts using the
 `spp draft` command with the same options as the
 publish command.
 
+## Verbose
+Add the `-v` flag for more verbosity. Helpful to identify any errors.
+
 # Permissions
 The SparkPost API key needs the following permissions:
 

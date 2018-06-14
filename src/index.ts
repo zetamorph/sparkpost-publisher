@@ -23,6 +23,7 @@ export interface PublishOrDraftParams {
     apiKey: string;
     publish: boolean;
     template?: string;
+    verbose: boolean;
 }
 
 let config: SPFPublisherConfig;
@@ -81,7 +82,9 @@ export async function handlePublishOrDraft(params: PublishOrDraftParams) {
     const publisher = new SparkPostPublisher(params.apiKey);
 
     for (const t of templates) {
-        console.log(`Updating ${t.id}`);
+        if (params.verbose) {
+            console.log(`Updating ${t.id}`);
+        }
         await publisher.createOrUpdate(t);
         console.log(chalk.green(`Updated ${t.id}`));
     }

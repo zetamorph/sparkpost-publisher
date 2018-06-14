@@ -24,6 +24,13 @@ const draftAndPublish: Array<Option> = [
         describe: 'Specify single template',
         description: 'Execute the operation on a single template',
     },
+    {
+        short: 'v',
+        name: 'verbose',
+        type: 'boolean',
+        describe: 'More debug output',
+        description: 'Increase the amount of information that is outputted.',
+    },
 ];
 
 function optionUsageTag({short, name}: Option): string {
@@ -56,6 +63,7 @@ async function parsePublishOrDraft(req: any, publish: boolean) {
     const options: PublishOrDraftParams = {
         apiKey: req.apiKey,
         publish,
+        verbose: req.verbose,
     };
 
     if (req.template) {
