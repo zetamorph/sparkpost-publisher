@@ -28,6 +28,7 @@
         "build": "tsc -p tsconfig.json"
     },
     "dependencies": {
+        "chalk": "^2.4.1",
         "commander": "^2.15.1",
         "sparkpost": "^2.1.2"
     },

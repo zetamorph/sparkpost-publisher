@@ -1,3 +1,4 @@
+import chalk from 'chalk';
 import * as fs from 'fs';
 import { CreateTemplateContent } from 'sparkpost';
 import { CreateOrUpdateTemplate, SparkPostPublisher } from './publisher';
@@ -82,6 +83,6 @@ export async function handlePublishOrDraft(params: PublishOrDraftParams) {
     for (const t of templates) {
         console.log(`Updating ${t.id}`);
         await publisher.createOrUpdate(t);
-        console.log(`Updated ${t.id}`);
+        console.log(chalk.green(`Updated ${t.id}`));
     }
 }
