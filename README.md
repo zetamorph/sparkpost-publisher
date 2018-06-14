@@ -13,23 +13,27 @@ the name and path of the file.
 Basic example:
 ```json
 {
-    "id-of-the-template": {
+    "password-reset": {
         "config": {
             "html": {
-                "file": "welcome.html"                
-            },
-            "text": {
-                "file": "welcome.txt"
+                "file": "password-reset.html"
             }
         },
         "sparkpost": {
-            "name": "Welcome to the future",
+            "content": {
+                "from": {
+                    "email": "no-reply@example.com",
+                    "name": "Example.com"
+                },
+                "subject": "Password reset"
+            },
             "options": {
-                "open_tracking": true
+                "transactional": true
             }
         }
     }
 }
+
 ```
 
 The keys of the root object are the IDs of the templates in SparkPost. If the ID
