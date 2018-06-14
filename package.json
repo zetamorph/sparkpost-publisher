@@ -21,6 +21,9 @@
         "url": "https://github.com/MatthiasKunnen/sparkpost-publisher/issues"
     },
     "homepage": "https://github.com/MatthiasKunnen/sparkpost-publisher#readme",
+    "bin": {
+        "spp": "./bin/spp"
+    },
     "scripts": {
         "build": "tsc -p tsconfig.json"
     },
