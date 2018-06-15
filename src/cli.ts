@@ -91,5 +91,3 @@ applyOptions(commander.command('draft'), draftAndPublish)
     .action(withErrors(req => parsePublishOrDraft(req, false)));
 
 commander.parse(process.argv);
-
-
