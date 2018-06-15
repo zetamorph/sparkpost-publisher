@@ -25,7 +25,7 @@
         "spp": "./bin/spp"
     },
     "scripts": {
-        "build": "tsc -p tsconfig.json"
+        "build": "rm -Rf ./lib && tsc -p tsconfig.json"
     },
     "dependencies": {
         "chalk": "^2.4.1",
