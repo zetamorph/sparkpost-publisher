@@ -1,3 +1,6 @@
+[![npm version](https://img.shields.io/npm/v/sparkpost-publisher.svg?style=for-the-badge)](https://www.npmjs.com/package/sparkpost-publisher)
+
+
 # SparkPost publisher
 This library allows you to publish your emails to SparkPost automatically. No
 longer you need to copy paste your emails to SparkPost and mistakenly update the
