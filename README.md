@@ -36,7 +36,6 @@ Basic example:
         }
     }
 }
-
 ```
 
 The keys of the root object are the IDs of the templates in SparkPost. If the ID
@@ -63,6 +62,13 @@ Publish all your emails using the
 command. Optionally, you can specify that you only wish to publish one email
 using the `--template template-id` flag. New templates will be created and
 published.
+
+### Multiple environments, review/staging
+If you have multiple environments you can use the `suffix` flag to deploy your
+templates with a suffix.
+
+E.g. using `--suffix review` with template `password-reset` will create or
+update a template with the ID of `password-reset-review`.
 
 ## Draft
 Submit your drafts using the 

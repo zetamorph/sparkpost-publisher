@@ -17,6 +17,11 @@ const draftAndPublish: Array<Option> = [
         describe: 'SparkPost API key',
     },
     {
+        name: 'suffix',
+        type: 'string',
+        describe: 'Specify a suffix for your template IDs',
+    },
+    {
         name: 'template',
         type: 'string',
         describe: 'Execute the operation on a single template',
@@ -59,6 +64,7 @@ async function parsePublishOrDraft(req: any, publish: boolean) {
     const options: PublishOrDraftParams = {
         apiKey: req.apiKey,
         publish,
+        suffix: req.suffix,
         verbose: req.verbose,
     };
 
