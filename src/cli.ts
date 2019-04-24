@@ -8,7 +8,6 @@ interface Option {
     name: string;
     type: 'string' | 'boolean';
     describe: string;
-    description: string; // Long, used for `--help`
 }
 
 const draftAndPublish: Array<Option> = [
@@ -16,20 +15,17 @@ const draftAndPublish: Array<Option> = [
         name: 'api-key',
         type: 'string',
         describe: 'SparkPost API key',
-        description: 'The API key used to communicate with SparkPost',
     },
     {
         name: 'template',
         type: 'string',
-        describe: 'Specify single template',
-        description: 'Execute the operation on a single template',
+        describe: 'Execute the operation on a single template',
     },
     {
         short: 'v',
         name: 'verbose',
         type: 'boolean',
         describe: 'More debug output',
-        description: 'Increase the amount of information that is outputted.',
     },
 ];
 
