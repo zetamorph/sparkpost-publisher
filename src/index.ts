@@ -48,7 +48,7 @@ function setContent(content: CreateTemplateContent, templateConfig: SPFPublisher
     return content;
 }
 
-export function getTemplate(templateId: string, publish: boolean): CreateOrUpdateTemplate {
+export function getTemplate(templateId: string): CreateOrUpdateTemplate {
     const templateConfig: SPFPublisherTemplateConfig | undefined = getConfig()[templateId];
 
     if (templateConfig === undefined) {
@@ -63,7 +63,6 @@ export function getTemplate(templateId: string, publish: boolean): CreateOrUpdat
         content: {}, // For when the config does not have the content map
         ...templateConfig.sparkpost,
         id: templateId,
-        published: publish,
     };
 
     setContent(template.content, templateConfig);
@@ -75,9 +74,9 @@ export async function handlePublishOrDraft(params: PublishOrDraftParams) {
     let templates;
 
     if (params.template) {
-        templates = [getTemplate(params.template, params.publish)];
+        templates = [getTemplate(params.template)];
     } else {
-        templates = Object.keys(getConfig()).map(k => getTemplate(k, params.publish));
+        templates = Object.keys(getConfig()).map(getTemplate);
     }
 
     const publisher = new SparkPostPublisher(params.apiKey);
@@ -96,7 +95,7 @@ export async function handlePublishOrDraft(params: PublishOrDraftParams) {
         await publisher.createOrUpdate({
             ...t,
             id,
-        });
+        }, params.publish);
         console.log(chalk.green(`Updated ${id}`));
     }
 }

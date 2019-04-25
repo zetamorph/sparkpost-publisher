@@ -14,7 +14,7 @@ export class SparkPostPublisher {
         this.sparkPost = new SparkPost(apiKey);
     }
 
-    async createOrUpdate(template: CreateOrUpdateTemplate) {
+    async createOrUpdate(template: CreateOrUpdateTemplate, publish = false) {
         try {
             await this.sparkPost.templates.get(template.id);
         } catch (e) {
@@ -26,6 +26,8 @@ export class SparkPostPublisher {
             return;
         }
 
-        await this.sparkPost.templates.update(template.id, template);
+        await this.sparkPost.templates.update(template.id, template, {
+            update_published: publish,
+        });
     }
 }
