@@ -27,7 +27,7 @@
     "main": "lib/index.js",
     "scripts": {
         "build": "rm -Rf ./lib && tsc -p tsconfig.json",
-        "prepublishOnly": "rm -rf ./lib && npm run build"
+        "prepublishOnly": "npm run build"
     },
     "dependencies": {
         "chalk": "^2.4.1",
