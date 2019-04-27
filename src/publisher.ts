@@ -1,9 +1,11 @@
 import { CreateTemplate, CreateTemplateContent } from 'sparkpost';
 import * as SparkPost from 'sparkpost';
 
+export type TemplateContent = CreateTemplateContent | { email_rfc822: string };
+
 export interface CreateOrUpdateTemplate extends CreateTemplate {
     id: string;
-    content: CreateTemplateContent;
+    content: TemplateContent;
 }
 
 export class SparkPostPublisher {

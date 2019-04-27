@@ -1,7 +1,6 @@
 import chalk from 'chalk';
 import * as fs from 'fs';
-import { CreateTemplateContent } from 'sparkpost';
-import { CreateOrUpdateTemplate, SparkPostPublisher } from './publisher';
+import { CreateOrUpdateTemplate, SparkPostPublisher, TemplateContent } from './publisher';
 
 export interface SPFPublisherTypeConfig {
     file: string;
@@ -9,8 +8,7 @@ export interface SPFPublisherTypeConfig {
 
 export interface SPFPublisherTemplateConfig {
     config: {
-        html: SPFPublisherTypeConfig;
-        text: SPFPublisherTypeConfig;
+        [k: string]: SPFPublisherTypeConfig;
     };
     sparkpost: CreateOrUpdateTemplate;
 }
@@ -41,7 +39,7 @@ function getEmailContent(filename: string) {
     return fs.readFileSync(`dist/${filename}`, 'utf8');
 }
 
-function setContent(content: CreateTemplateContent, templateConfig: SPFPublisherTemplateConfig) {
+function setContent(content: TemplateContent, templateConfig: SPFPublisherTemplateConfig) {
     Object.keys(templateConfig.config)
         .forEach(k => content[k] = getEmailContent(templateConfig.config[k].file));
 
@@ -55,8 +53,12 @@ export function getTemplate(templateId: string): CreateOrUpdateTemplate {
         throw new Error(`Could not find template with ID ${templateId}`);
     }
 
-    if (templateConfig.config.text == null && templateConfig.config.html == null) {
-        throw new Error(`At least one required (html/text) in the config of ${templateId}`);
+    if (templateConfig.config.text == null
+        && templateConfig.config.html == null
+        && templateConfig.config.email_rfc822 == null) {
+        throw new Error(
+            `At least one required (html/text/email_rfc822) in the config of ${templateId}`,
+        );
     }
 
     const template: CreateOrUpdateTemplate = {
