@@ -43,9 +43,34 @@ does not exist, the template will be created.
 
 The `config` key contains the configuration used by this library.
 
-Specify the content type, html or text, and then the file in which the content
-of this type can be found. The file is expected to be in the dist folder. Both
-content types may be specified but only one is required.
+**Config explained:**  
+```json
+{
+    "html": {
+        "file": "password-reset.html"
+    },
+    "email_rfc822": {
+        "file": "password-reset.rfc"
+    },
+    "text": {
+        "file": "password-reset.txt"
+    }
+}
+```
+
+This config object means the following:
+- replace `content.html` with the contents of the file found at
+`dist/password-reset.html`.
+- replace `content.email_rfc822` with the contents of the file found at
+`dist/password-reset.rfc`.
+- replace `content.text` with the contents of the file found at
+`dist/password-reset.txt`.
+
+While you can use both _html_ and _text_ if desired, you cannot mix either of
+them with _email_rfc822_.
+
+The `config.content` object is essentially merged into the `sparkpost.content`
+object after the source files are read.
 
 The `sparkpost` key contains any template configuration you would like to
 specify. This allows you to version control name, description and other options
