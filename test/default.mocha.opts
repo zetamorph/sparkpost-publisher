@@ -1,0 +1,7 @@
+--require ts-node/register
+
+--recursive
+--timeout 20000
+--extension ts
+
+--file ./test/setup-mocha.ts
