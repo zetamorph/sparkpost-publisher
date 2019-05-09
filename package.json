@@ -28,7 +28,7 @@
     "scripts": {
         "build": "rm -Rf ./lib && tsc -p tsconfig.json",
         "prepublishOnly": "npm run build",
-        "test": "npm run test-base -- test/**/*.spec.ts",
+        "test": "npm run test-base -- \"test/**/*.spec.ts\"",
         "test-base": "mocha --opts test/default.mocha.opts",
         "test:watch": "npm run test -- -w"
     },
