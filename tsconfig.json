@@ -13,6 +13,7 @@
         "declaration": true,
         "sourceMap": false,
         "target": "es5",
+        "skipLibCheck": true,
         "lib": [
             "es2015"
         ],

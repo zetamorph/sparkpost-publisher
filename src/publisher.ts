@@ -12,8 +12,8 @@ export class SparkPostPublisher {
 
     private readonly sparkPost: SparkPost;
 
-    constructor(apiKey: string) {
-        this.sparkPost = new SparkPost(apiKey);
+    constructor(apiKey: string, options?: SparkPost.ConstructorOptions) {
+        this.sparkPost = new SparkPost(apiKey, options);
     }
 
     /**

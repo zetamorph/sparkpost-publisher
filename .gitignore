@@ -42,4 +42,4 @@ Thumbs.db
 .fuse_hidden*
 
 **/*.min.*
-lib/
+#lib/

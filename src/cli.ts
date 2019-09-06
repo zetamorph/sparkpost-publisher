@@ -17,6 +17,11 @@ const draftAndPublish: Array<Option> = [
         describe: 'SparkPost API key',
     },
     {
+        name: 'endpoint',
+        type: 'string',
+        describe: 'SparkPost API endpoint',
+    },
+    {
         name: 'suffix',
         type: 'string',
         describe: 'Specify a suffix for your template IDs',
@@ -62,6 +67,7 @@ async function parsePublishOrDraft(req: any, publish: boolean) {
     checkApiKey(req);
 
     const options: PublishOrDraftParams = {
+        endpoint: req.endpoint,
         apiKey: req.apiKey,
         publish,
         suffix: req.suffix,
